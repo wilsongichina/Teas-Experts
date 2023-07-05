@@ -15,11 +15,22 @@ const Team = () => {
       <div className="team-area ptb-80 bg-f9f6f6">
         <div className="container">
           <div className="section-title">
-            <h2>Our Awesome Team</h2>
+            <h2>How Can Someone Take My TEAS Exam for Me?</h2>
             <div className="bar"></div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <p style={{maxWidth: '100%'}}>
+              Are you in search of dependable assistance for your proctored exams? Look no further!
+              At Take, our experienced tutors are well-versed in various online testing and proctoring software.
+              With years of expertise, they have developed custom software and innovative methods to provide comprehensive support for all your proctored exams.
+              When it comes to the ATI TEAS proctored test, our tutors consistently assist aspiring nurses in achieving success.
+              They leverage their in-depth understanding of the exam and utilize cutting-edge technologies to help you pass with flying colors.
+              Concerned about the security of having someone take your ATI TEAS proctored test on your behalf?
+              Rest assured, at TeasExperts.com, we prioritize your safety and confidentiality.
+              With over 7 years of experience, we maintain an impeccable track record without a single incident.
+              Our strict policies and procedures ensure three layers of security, giving you peace of mind throughout the entire process.
+              Whether you require assistance with Take My Exam, Take My Proctored Exam, or any other class-related support, 
+              you can trust TeasExperts.com to provide a secure and reliable solution.
+              Contact us today and experience our secure and confidential services firsthand.
+              Let us assist you in excelling on your academic journey!
             </p>
           </div>
         </div>

@@ -19,7 +19,7 @@ const MainBanner = () => {
                 <div className="col-lg-5">
                   <div className="hero-content">
                     <h1>Can I Pay Someone to Take My Teas Exam for Me?</h1>
-                    <p>
+                    <p className="text-center">
                       Definitely! You can hire TeasExperts.com to take your ATI TEAS exam.
                       We provide a satisfaction guarantee, assuring a minimum score of 85% or a full refund.
                       Our team of proficient tutors is committed to guaranteeing your success on the ATI TEAS test.
