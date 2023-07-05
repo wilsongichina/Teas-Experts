@@ -18,15 +18,25 @@ const MainBanner = () => {
               <div className="row justify-content-center align-items-center">
                 <div className="col-lg-5">
                   <div className="hero-content">
-                    <h1>Your Idea Matters!</h1>
+                    <h1>Can I Pay Someone to Take My Teas Exam for Me?</h1>
                     <p>
-                      Pulvinar enim ac tortor nulla facilisi tristique facilisi
-                      elementum sollicitudin eget lorem.
+                      Definitely! You can hire TeasExperts.com to take your ATI TEAS exam.
+                      We provide a satisfaction guarantee, assuring a minimum score of 85% or a full refund.
+                      Our team of proficient tutors is committed to guaranteeing your success on the ATI TEAS test.
                     </p>
 
-                    <Link to="/contact" className="btn btn-primary">
-                      Make a Website
-                    </Link>
+                    <div className="row justify-content-center align-items-center">
+                      <div className="col-lg-5 align-items-center">
+                        <Link to="/contact" className="btn btn-primary">
+                          Get a Quote
+                        </Link>
+                      </div>
+                      <div className="col-lg-5 align-items-center">
+                        <Link to="/contact" className="btn btn-primary">
+                          Chat Now
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -34,11 +44,11 @@ const MainBanner = () => {
                   <div className="banner-form ml-3">
                     <form>
                       <div className="form-group">
-                        <label htmlFor="text">Name</label>
+                        <label htmlFor="text">Your Name</label>
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="Enter Name"
+                          placeholder="Mary Johns"
                         />
                       </div>
 
@@ -47,21 +57,31 @@ const MainBanner = () => {
                         <input
                           type="email"
                           className="form-control"
-                          placeholder="Enter your email"
+                          placeholder="johns@email.com"
                         />
                       </div>
 
                       <div className="form-group">
-                        <label htmlFor="password">Message</label>
+                        <label htmlFor="whatsapp">WhatsApp Number</label>
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="Enter message"
+                          placeholder="+170280..."
                         />
                       </div>
 
+                      <div className="form-group">
+                        <label htmlFor="password">Type of Task</label>
+                        <select className="form-select">
+                          <option value="1">Teas Exam</option>
+                          <option value="2">Hesi A2 Exam</option>
+                          <option value="3">GED</option>
+                          <option value="4">Online Class</option>
+                        </select>
+                      </div>
+
                       <button type="submit" className="btn btn-primary">
-                        Book Website
+                        Get a Quote Now
                       </button>
                     </form>
                   </div>

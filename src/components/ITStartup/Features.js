@@ -21,12 +21,13 @@ const Features = () => {
                 </div>
 
                 <h3>
-                  <Link to="/feature-details">Zero Configuration</Link>
+                  <Link to="/feature-details">Submit Your Order</Link>
                 </h3>
 
                 <p>
-                  Lorem ipsum dolor sit amet elit, adipiscing, sed do eiusmod
-                  tempor incididunt ut labore dolore magna.
+                  Please provide us with all the essential details of your task, including specific requirements and the deadline.
+                  It is crucial for us to have a comprehensive understanding of your needs so that we can effectively meet your expectations.
+                  Kindly ensure that you communicate all the necessary information to facilitate a smooth and successful execution of your task.
                 </p>
               </div>
             </div>
@@ -44,12 +45,12 @@ const Features = () => {
                 </div>
 
                 <h3>
-                  <Link to="/feature-details">Code Security</Link>
+                  <Link to="/feature-details">Make an Initial Payment</Link>
                 </h3>
 
                 <p>
-                  Lorem ipsum dolor sit amet elit, adipiscing, sed do eiusmod
-                  tempor incididunt ut labore dolore magna.
+                  To initiate the process of taking the TEAS exam, you can begin by making a small prepayment.
+                  This payment enables our expert to start working on your task promptly and ensure a smooth progression throughout the exam-taking process.
                 </p>
               </div>
             </div>
@@ -67,12 +68,12 @@ const Features = () => {
                 </div>
 
                 <h3>
-                  <Link to="/feature-details">Team Management</Link>
+                  <Link to="/feature-details">Receive Your Grades</Link>
                 </h3>
 
                 <p>
-                  Lorem ipsum dolor sit amet elit, adipiscing, sed do eiusmod
-                  tempor incididunt ut labore dolore magna.
+                  We will ensure the completion of the exam well before the deadline, allowing you ample time to meticulously review the grades.
+                  Our commitment is to provide you with sufficient opportunity to assess and evaluate the results before making any final payment.
                 </p>
               </div>
             </div>
@@ -90,12 +91,13 @@ const Features = () => {
                 </div>
 
                 <h3>
-                  <Link to="/feature-details">Access Controlled</Link>
+                  <Link to="/feature-details">Make Full Payment</Link>
                 </h3>
 
                 <p>
-                  Lorem ipsum dolor sit amet elit, adipiscing, sed do eiusmod
-                  tempor incididunt ut labore dolore magna.
+                  Upon reviewing the grades and confirming the quality of the service, you can release the remaining payment.
+                  Nevertheless, this is contingent upon our guarantee of achieving a minimum of 85% in the results.
+                  In the event of not meeting this threshold, you are entitled to a full refund, ensuring your satisfaction is our top priority.
                 </p>
               </div>
             </div>
