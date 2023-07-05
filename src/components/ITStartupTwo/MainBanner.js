@@ -18,15 +18,14 @@ const MainBanner = () => {
               <div className="row justify-content-center align-items-center">
                 <div className="col-lg-5">
                   <div className="hero-content">
-                    <h1>Built For Developers</h1>
+                    <h1>Your Idea Matters!</h1>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Quis ipsum suspendisse ultrices gravida.
+                      Pulvinar enim ac tortor nulla facilisi tristique facilisi
+                      elementum sollicitudin eget lorem.
                     </p>
 
                     <Link to="/contact" className="btn btn-primary">
-                      Get Started
+                      Make a Website
                     </Link>
                   </div>
                 </div>
@@ -35,11 +34,11 @@ const MainBanner = () => {
                   <div className="banner-form ml-3">
                     <form>
                       <div className="form-group">
-                        <label htmlFor="text">Username</label>
+                        <label htmlFor="text">Name</label>
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="Enter username"
+                          placeholder="Enter Name"
                         />
                       </div>
 
@@ -53,16 +52,16 @@ const MainBanner = () => {
                       </div>
 
                       <div className="form-group">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Message</label>
                         <input
-                          type="password"
+                          type="text"
                           className="form-control"
-                          placeholder="Create a password"
+                          placeholder="Enter message"
                         />
                       </div>
 
                       <button type="submit" className="btn btn-primary">
-                        Register Now
+                        Book Website
                       </button>
                     </form>
                   </div>
