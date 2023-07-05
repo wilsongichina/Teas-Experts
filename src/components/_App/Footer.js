@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import * as Icon from "react-feather"
 
-import Logo from "../../images/logo.png"
+// import Logo from "../../images/logo.png"
 import MapImg from "../../images/map.png"
 import Shape1 from "../../images/shape1.png"
 import Shape2 from "../../images/shape2.svg"
@@ -22,16 +22,16 @@ const Footer = () => {
               data-aos-once="false"
             >
               <div className="single-footer-widget">
-                <div className="logo">
+                {/* <div className="logo">
                   <Link to="/it-startup">
                     <img src={Logo} alt="logo" />
                   </Link>
-                </div>
+                </div> */}
+                <h3>Teas Exam Specialists:</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi.
+                  Our company offers extensive support for a variety of exams, including proctored exams, TEAS exams, HESI A2 exams, GED exams, and final exams. 
+                  With our customized services, we cater to various subjects and academic levels, providing the assistance you need to accomplish your academic objectives. 
+                  You can hire our affordable services today and allow us to assist you in successfully completing your classes.
                 </p>
               </div>
             </div>
@@ -47,19 +47,19 @@ const Footer = () => {
                 <h3>Company</h3>
                 <ul className="list">
                   <li>
-                    <Link to="/about-1">About Us</Link>
+                    <Link to="/about-us">About Us</Link>
                   </li>
                   <li>
-                    <Link to="/services-1">Services</Link>
+                    <Link to="/services">Services</Link>
                   </li>
                   <li>
-                    <Link to="/features">Features</Link>
+                    <Link to="/how-it-works">How it Works</Link>
                   </li>
                   <li>
                     <Link to="/pricing">Our Pricing</Link>
                   </li>
                   <li>
-                    <Link to="/blog-1">Latest News</Link>
+                    <Link to="/blog">Blog</Link>
                   </li>
                 </ul>
               </div>
@@ -85,7 +85,7 @@ const Footer = () => {
                     <Link to="/term-condition">Terms & Condition</Link>
                   </li>
                   <li>
-                    <Link to="/team">Team</Link>
+                    <Link to="/refund-policy">Refund Policy</Link>
                   </li>
                   <li>
                     <Link to="/contact">Contact Us</Link>
@@ -111,11 +111,11 @@ const Footer = () => {
                   </li>
                   <li>
                     <Icon.Mail />
-                    Email: <a href="mailto:spet@gmail.com">spet@gmail.com</a>
+                    Email: <a href="info@teasexperts.com">info@teasexperts.com</a>
                   </li>
                   <li>
                     <Icon.PhoneCall />
-                    Phone: <a href="tel:321984754">+ (321) 984 754</a>
+                    Phone: <a href="tel:4782030968">+ (478) 203 0968</a>
                   </li>
                 </ul>
 
@@ -167,14 +167,7 @@ const Footer = () => {
             <div className="col-lg-12 col-md-12">
               <div className="copyright-area">
                 <p>
-                  Copyright &copy; {currentYear} Spet. All rights reserved by{" "}
-                  <a
-                    href="https://envytheme.com"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    EnvyTheme
-                  </a>
+                  Copyright &copy; {currentYear} Spet. All rights reserved by Teas Experts
                 </p>
               </div>
             </div>

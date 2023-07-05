@@ -7,6 +7,10 @@ const Features = () => {
     <>
       <div className="boxes-area">
         <div className="container">
+          <div className="section-title">
+            <h2>Explore Our Work Flow</h2>
+            <div className="bar"></div>
+          </div>
           <div className="row justify-content-center">
             <div
               className="col-lg-3 col-sm-6"
