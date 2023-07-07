@@ -15,8 +15,8 @@ const BlogPost = () => {
             <h2>The News from Our Blog</h2>
             <div className="bar"></div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              "Are you looking to stay informed about the latest news and updates regarding TEAS exam help, HESI exam help, GED exam help, and online class assistance?
+              Look no further! We provide a reliable source of information to keep you updated and informed about these subjects."
             </p>
           </div>
 

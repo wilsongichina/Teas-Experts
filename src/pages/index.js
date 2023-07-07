@@ -9,9 +9,9 @@ import OurFeatures from "../components/ITStartup/OurFeatures"
 import Team from "../components/Common/Team"
 import FunFactsArea from "../components/Common/FunFactsArea"
 import RecentWorks from "../components/Common/RecentWorks"
-import PricingStyleOne from "../components/PricingPlans/PricingStyleOne"
-import Feedback from "../components/Common/Feedback"
-import Partner from "../components/Common/Partner"
+import Faq from "../components/Common/Faq"
+// import Feedback from "../components/Common/Feedback"
+// import Partner from "../components/Common/Partner"
 import BlogPost from "../components/Common/BlogPost"
 import Footer from "../components/_App/Footer"
 
@@ -34,11 +34,11 @@ const IndexPage = () => (
 
     <RecentWorks />
 
-    <PricingStyleOne />
+    <Faq />
 
-    <Feedback />
+    {/* <Feedback /> */}
 
-    <Partner />
+    {/* <Partner /> */}
 
     <BlogPost />
 
