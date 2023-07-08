@@ -72,7 +72,7 @@ const Navbar = () => {
 
                 <li className="nav-item">
                   <Link
-                    to="/aboutus"
+                    to="/about-us"
                     activeClassName="active"
                     onClick={toggleNavbar}
                     className="nav-link"
