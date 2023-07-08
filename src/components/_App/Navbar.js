@@ -35,7 +35,7 @@ const Navbar = () => {
         <div className="container">
           <nav className="navbar navbar-expand-md navbar-light">
             <Link
-              to="/it-startup"
+              to="/"
               onClick={toggleNavbar}
               className="navbar-brand"
             >
