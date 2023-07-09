@@ -2162,6 +2162,10 @@ Pricing CSS
   position: relative;
   z-index: 1;
 }
+.pricing-area .section-title p {
+  max-width: 100%;
+  margin: 0 auto;
+}
 
 .pricing-table {
   background: #ffffff;

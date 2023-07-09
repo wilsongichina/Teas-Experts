@@ -83,8 +83,8 @@ const Navbar = () => {
 
                 <li className="nav-item">
                   <Link
-                    to="#"
-                    onClick={e => e.preventDefault()}
+                    to="/services-2"
+                    onClick={toggleNavbar}
                     className="nav-link"
                   >
                     Services <Icon.ChevronDown />
@@ -202,7 +202,7 @@ const Navbar = () => {
 
                     <li className="nav-item">
                       <Link
-                        to="/terms-and-conditions"
+                        to="/terms"
                         activeClassName="active"
                         onClick={toggleNavbar}
                         className="nav-link"

@@ -4,22 +4,19 @@ import Seo from "../components/_App/seo"
 import Navbar from "../components/_App/Navbar"
 import Footer from "../components/_App/Footer"
 import PageBanner from "../components/Common/PageBanner"
-import PricingCards from "../components/PricingPlans/PricingCards"
+import TermsConditions from "../components/Legacy/TermsConditions"
 
-const PricingPage = () => (
+const TermsConditionsPage = () => (
   <Layout>
     <Navbar />
 
-    <PageBanner pageTitle="Pricing" />
-
-    <div className="pt-80">
-      <PricingCards />
-    </div>
+    <PageBanner pageTitle="Terms and Conditions" />
+    <TermsConditions />
 
     <Footer />
   </Layout>
 )
 
-export const Head = () => <Seo title="Pricing" />
+export const Head = () => <Seo title="Terms and Conditions" />
 
-export default PricingPage
+export default TermsConditionsPage

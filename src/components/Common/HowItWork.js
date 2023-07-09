@@ -38,12 +38,6 @@ const HowItWork = () => {
                 We highly encourage you to get in touch with us to learn about the available packages specifically designed for the TEAS test.
                 Our team of leading tutors is dedicated to addressing any inquiries or apprehensions you may have regarding our services.
                 Feel free to rely on their expertise and guidance.
-                In the initial stage of our program, students are required to register and inform us that they would like us to handle their TEAS exam.
-                They can reach out to us with the preferred date and time, allowing us to schedule their session in our system.
-                This step is crucial as it enables you to make an appointment with one of our experienced tutors who will assist you during the exam.
-                We highly encourage you to get in touch with us to learn about the available packages specifically designed for the TEAS test.
-                Our team of leading tutors is dedicated to addressing any inquiries or apprehensions you may have regarding our services.
-                Feel free to rely on their expertise and guidance.
               </p>
             </div>
           </li>
