@@ -83,7 +83,7 @@ const Navbar = () => {
 
                 <li className="nav-item">
                   <Link
-                    to="/services-2"
+                    to="/services"
                     onClick={toggleNavbar}
                     className="nav-link"
                   >
@@ -93,7 +93,8 @@ const Navbar = () => {
                   <ul className="dropdown-menu">
                     <li className="nav-item">
                       <Link
-                        to="/teas-exams"
+                        to="/service-details"
+                        state={{service: 'teas-exams'}}
                         activeClassName="active"
                         onClick={toggleNavbar}
                         className="nav-link"
@@ -104,7 +105,8 @@ const Navbar = () => {
 
                     <li className="nav-item">
                       <Link
-                        to="/hesi-a2-exams"
+                        to="/service-details"
+                        state={{service: 'hesi-a2-exams'}}
                         activeClassName="active"
                         onClick={toggleNavbar}
                         className="nav-link"
@@ -115,7 +117,8 @@ const Navbar = () => {
 
                     <li className="nav-item">
                       <Link
-                        to="/ged-exams"
+                        to="/service-details"
+                        state={{service: 'ged-exams'}}
                         activeClassName="active"
                         onClick={toggleNavbar}
                         className="nav-link"
@@ -126,7 +129,8 @@ const Navbar = () => {
                     
                     <li className="nav-item">
                       <Link
-                        to="/online-class"
+                        to="/service-details"
+                        state={{service: 'online-class'}}
                         activeClassName="active"
                         onClick={toggleNavbar}
                         className="nav-link"

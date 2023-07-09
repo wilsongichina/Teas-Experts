@@ -7087,6 +7087,9 @@ ML Services CSS
   background: linear-gradient(to left bottom, #fffcff, #fbfaff, #effbff, #e0fdff, #d5fefd);
 }
 
+.ml-services-area .image {
+  text-align: center;
+}
 .single-ml-services-box {
   position: relative;
   z-index: 1;

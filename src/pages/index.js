@@ -2,7 +2,6 @@ import * as React from "react"
 import Layout from "../components/_App/layout"
 import Seo from "../components/_App/seo"
 import Navbar from "../components/_App/Navbar"
-// import Navbar from "../components/_App/NavbarStyleTwo"
 import MainBanner from "../components/ITStartupTwo/MainBanner"
 import Features from "../components/ITStartup/Features"
 import ServicesArea from "../components/ITStartup/ServicesArea"
@@ -11,8 +10,6 @@ import Team from "../components/Common/Team"
 import FunFactsArea from "../components/Common/FunFactsArea"
 import RecentWorks from "../components/Common/RecentWorks"
 import Faq from "../components/Common/Faq"
-// import Feedback from "../components/Common/Feedback"
-// import Partner from "../components/Common/Partner"
 import BlogPost from "../components/Common/BlogPost"
 import Footer from "../components/_App/Footer"
 
@@ -36,10 +33,6 @@ const IndexPage = () => (
     <RecentWorks />
 
     <Faq />
-
-    {/* <Feedback /> */}
-
-    {/* <Partner /> */}
 
     <BlogPost />
 
