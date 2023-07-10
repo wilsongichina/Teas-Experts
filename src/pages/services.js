@@ -56,7 +56,7 @@ const ServicesPage = () => (
                 <img src={ServiceImage2} alt="Service" />
               </div>
               <h3>
-                <Link to="/service-details">Hesi A2 Exams</Link>
+                <Link to="/service-details" state={{service: 'hesi-a2-exams'}}>Hesi A2 Exams</Link>
               </h3>
               <p>
                 This is a service for Hesi A2 Exams
@@ -70,7 +70,7 @@ const ServicesPage = () => (
                 <img src={ServiceImage3} alt="Service" />
               </div>
               <h3>
-                <Link to="/service-details">GED Exams</Link>
+                <Link to="/service-details" state={{service: 'ged-exams'}}>GED Exams</Link>
               </h3>
               <p>
                 This is a service for GED Exams
@@ -84,7 +84,7 @@ const ServicesPage = () => (
                 <img src={ServiceImage4} alt="Service" />
               </div>
               <h3>
-                <Link to="/service-details">Online Class</Link>
+                <Link to="/service-details" state={{service: 'online-class'}}>Online Class</Link>
               </h3>
               <p>
                 This is a service for Online Class

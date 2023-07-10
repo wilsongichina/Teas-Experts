@@ -15,7 +15,7 @@ import {
 import ServicesDetails1 from "../images/services-details-image/services-details1.png"
 import ServicesDetails2 from "../images/services-details-image/services-details2.png"
 
-const ServiceDetailsPage = ({location}) => {
+const ServiceDetailsPage = ({ location }) => {
   console.log('service:', location.state.service);
   return (
     <Layout>
