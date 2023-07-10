@@ -1,8 +1,62 @@
-import React from "react"
-
+import React, { useState } from "react"
 import ContactImg from "../../images/contact-img.png"
 
+const FORM_ENDPOINT = "https://teasexport-mail.com/contact";
 const ContactForm = () => {
+  const [submitted, setSubmitted] = useState(false);
+  
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+
+    const inputs = e.target.elements;
+    const data = {};
+
+    for (let i = 0; i < inputs.length; i++) {
+      if (inputs[i].name) {
+        data[inputs[i].name] = inputs[i].value;
+      }
+    }
+    console.log('contact data:', data);
+    setSubmitted(true);
+/*
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Form response was not ok');
+        }
+
+        setSubmitted(true);
+      })
+      .catch((err) => {
+        // Submit the form manually
+        e.target.submit();
+      });
+      */
+  };
+
+  if (submitted) {
+    return (
+      <>
+        <div className="contact-area ptb-80">
+          <div className="container">
+            <div className="section-title">
+              <h2>Thank you for reaching out to us</h2>
+              <div className="bar"></div>
+              <p>We appreciate your message, and our support team will respond to you shortly.</p>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <div className="contact-area ptb-80">
@@ -19,7 +73,7 @@ const ContactForm = () => {
             </div>
 
             <div className="col-lg-6 col-md-12">
-              <form id="contactForm">
+              <form id="contactForm" action={FORM_ENDPOINT} onSubmit={handleContactSubmit}>
                 <div className="row">
                   <div className="col-lg-12 col-md-12">
                     <div className="form-group">
