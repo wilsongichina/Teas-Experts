@@ -27,7 +27,7 @@ const MainBanner = () => {
 
                     <div className="row justify-content-center align-items-center">
                       <div className="col-lg-5 align-items-center">
-                        <Link to="/contact" className="btn btn-primary">
+                        <Link to="/quote" className="btn btn-primary">
                           Get a Quote
                         </Link>
                       </div>
@@ -47,6 +47,7 @@ const MainBanner = () => {
                         <label htmlFor="text">Your Name</label>
                         <input
                           type="text"
+                          name="customer_name"
                           className="form-control"
                           placeholder="Mary Johns"
                         />
@@ -56,6 +57,7 @@ const MainBanner = () => {
                         <label htmlFor="email">Email</label>
                         <input
                           type="email"
+                          name="customer_email"
                           className="form-control"
                           placeholder="johns@email.com"
                         />
@@ -65,19 +67,29 @@ const MainBanner = () => {
                         <label htmlFor="whatsapp">WhatsApp Number</label>
                         <input
                           type="text"
+                          name="whatsapp_number"
                           className="form-control"
                           placeholder="+170280..."
                         />
                       </div>
 
                       <div className="form-group">
-                        <label htmlFor="password">Type of Task</label>
-                        <select className="form-select">
-                          <option value="1">Teas Exam</option>
-                          <option value="2">Hesi A2 Exam</option>
-                          <option value="3">GED</option>
-                          <option value="4">Online Class</option>
+                        <label htmlFor="type-task">Type of Task</label>
+                        <select className="form-select" name="task_type">
+                          <option value="Teas Exam">Teas Exam</option>
+                          <option value="Hesi A2 Exam">Hesi A2 Exam</option>
+                          <option value="GED">GED</option>
+                          <option value="Online Class">Online Class</option>
                         </select>
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="budget">Your budget</label>
+                        <input
+                          type="number"
+                          name="quote_budget"
+                          className="form-control"
+                        />
                       </div>
 
                       <button type="submit" className="btn btn-primary">

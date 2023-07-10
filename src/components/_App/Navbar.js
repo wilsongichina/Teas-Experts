@@ -231,7 +231,7 @@ const Navbar = () => {
             </div>
 
             <div className="others-option">
-              <Link to="/login" className="btn btn-primary">
+              <Link to="/quote" className="btn btn-primary">
                 Get a Quote
               </Link>
             </div>
