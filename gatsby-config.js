@@ -40,5 +40,13 @@ module.exports = {
         icon: `./src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url:
+          process.env.WPGRAPHQL_URL ||
+          `https://teasexpert.com/graphql`,
+      },
+    },
   ],
 }
