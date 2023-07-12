@@ -1,11 +1,13 @@
 import React from "react"
+import parse from "html-react-parser"
+import * as Icon from "react-feather"
+import { graphql, Link } from "gatsby"
+
 import Layout from "../components/_App/layout"
 import Seo from "../components/_App/seo"
 import Navbar from "../components/_App/Navbar"
 import Footer from "../components/_App/Footer"
 import PageBanner from "../components/Common/PageBanner"
-import * as Icon from "react-feather"
-import { graphql, Link } from "gatsby"
 import BlogSidebar from "../components/Blog/BlogSidebar"
 
 import BlogImg9 from "../images/blog-image/blog9.jpg"
@@ -17,6 +19,30 @@ import BlogImg14 from "../images/blog-image/blog14.jpg"
 
 const BlogPage = ({ data }) => {
   console.log('all posts: ', data?.allWpPost?.nodes)
+  const posts = data?.allWpPost?.nodes
+  if (!posts.length) {
+    return (
+      <Layout>
+        <Navbar />
+        <PageBanner pageTitle="Blog Right Sidebar" />
+        <div className="blog-area ptb-80">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 col-md-12">
+                <div className="row">
+                  <p>
+                    No blog posts found. Add posts to your WordPress site and they'll
+                    appear here!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    )
+  }
+
   return (
     <Layout>
       <Navbar />
@@ -28,215 +54,46 @@ const BlogPage = ({ data }) => {
           <div className="row">
             <div className="col-lg-8 col-md-12">
               <div className="row">
-                <div className="col-lg-6 col-md-6">
-                  <div className="single-blog-post-box">
-                    <div className="entry-thumbnail">
-                      <Link to="/blog-details">
-                        <img src={BlogImg9} alt="Post" />
-                      </Link>
-                    </div>
+                
+                {posts.map(post => {
+                  const title = post.title
 
-                    <div className="entry-post-content">
-                      <div className="entry-meta">
-                        <ul>
-                          <li>
-                            <Link to="/author">Admin</Link>
-                          </li>
-                          <li>August 15, 2023</li>
-                        </ul>
+                  return (
+                    <div className="col-lg-6 col-md-6" key={post.id}>
+                      <div className="single-blog-post-box">
+                        <div className="entry-thumbnail">
+                          <Link to={`/blog-detail/${post.id}`}>
+                            <img src={BlogImg9} alt="Post" />
+                          </Link>
+                        </div>
+
+                        <div className="entry-post-content">
+                          <div className="entry-meta">
+                            <ul>
+                              <li>
+                                <Link to="#">Admin</Link>
+                              </li>
+                              <li>{post.date}</li>
+                            </ul>
+                          </div>
+
+                          <h3>
+                            <Link to={`/blog-detail/${post.id}`}>
+                              {parse(title)}
+                            </Link>
+                          </h3>
+                          <p>
+                            {parse(post.excerpt)}
+                          </p>
+
+                          <Link to={`/blog-detail/${post.id}`} className="learn-more-btn">
+                            Read Story <Icon.Plus />
+                          </Link>
+                        </div>
                       </div>
-
-                      <h3>
-                        <Link to="/blog-details">
-                          Making Peace With The Feast Or Famine Of Freelancing
-                        </Link>
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod...
-                      </p>
-
-                      <Link to="/blog-details" className="learn-more-btn">
-                        Read Story <Icon.Plus />
-                      </Link>
                     </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-6 col-md-6">
-                  <div className="single-blog-post-box">
-                    <div className="entry-thumbnail">
-                      <Link to="/blog-details">
-                        <img src={BlogImg10} alt="Post" />
-                      </Link>
-                    </div>
-
-                    <div className="entry-post-content">
-                      <div className="entry-meta">
-                        <ul>
-                          <li>
-                            <Link to="/author">Admin</Link>
-                          </li>
-                          <li>August 18, 2023</li>
-                        </ul>
-                      </div>
-
-                      <h3>
-                        <Link to="/blog-details">
-                          I Used The Web For A Day On A 50 MB Budget
-                        </Link>
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod...
-                      </p>
-
-                      <Link to="/blog-details" className="learn-more-btn">
-                        Read Story <Icon.Plus />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-6 col-md-6">
-                  <div className="single-blog-post-box">
-                    <div className="entry-thumbnail">
-                      <Link to="/blog-details">
-                        <img src={BlogImg11} alt="Post" />
-                      </Link>
-                    </div>
-
-                    <div className="entry-post-content">
-                      <div className="entry-meta">
-                        <ul>
-                          <li>
-                            <Link to="/author">Admin</Link>
-                          </li>
-                          <li>August 15, 2023</li>
-                        </ul>
-                      </div>
-
-                      <h3>
-                        <Link to="/blog-details">
-                          Here are the 5 most telling signs of micromanagement
-                        </Link>
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod...
-                      </p>
-
-                      <Link to="/blog-details" className="learn-more-btn">
-                        Read Story <Icon.Plus />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-6 col-md-6">
-                  <div className="single-blog-post-box">
-                    <div className="entry-thumbnail">
-                      <Link to="/blog-details">
-                        <img src={BlogImg12} alt="Post" />
-                      </Link>
-                    </div>
-
-                    <div className="entry-post-content">
-                      <div className="entry-meta">
-                        <ul>
-                          <li>
-                            <Link to="/author">Admin</Link>
-                          </li>
-                          <li>August 15, 2023</li>
-                        </ul>
-                      </div>
-
-                      <h3>
-                        <Link to="/blog-details">
-                          The security risks of changing package owners
-                        </Link>
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod...
-                      </p>
-
-                      <Link to="/blog-details" className="learn-more-btn">
-                        Read Story <Icon.Plus />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-6 col-md-6">
-                  <div className="single-blog-post-box">
-                    <div className="entry-thumbnail">
-                      <Link to="/blog-details">
-                        <img src={BlogImg13} alt="Post" />
-                      </Link>
-                    </div>
-
-                    <div className="entry-post-content">
-                      <div className="entry-meta">
-                        <ul>
-                          <li>
-                            <Link to="/author">Admin</Link>
-                          </li>
-                          <li>August 18, 2023</li>
-                        </ul>
-                      </div>
-
-                      <h3>
-                        <Link to="/blog-details">
-                          Tips to Protecting Your Business and Family
-                        </Link>
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod...
-                      </p>
-
-                      <Link to="/blog-details" className="learn-more-btn">
-                        Read Story <Icon.Plus />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-6 col-md-6">
-                  <div className="single-blog-post-box">
-                    <div className="entry-thumbnail">
-                      <Link to="/blog-details">
-                        <img src={BlogImg14} alt="Post" />
-                      </Link>
-                    </div>
-
-                    <div className="entry-post-content">
-                      <div className="entry-meta">
-                        <ul>
-                          <li>
-                            <Link to="/author">Admin</Link>
-                          </li>
-                          <li>August 15, 2023</li>
-                        </ul>
-                      </div>
-
-                      <h3>
-                        <Link to="/blog-details">
-                          Protect Your Workplace from Cyber Attacks
-                        </Link>
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod...
-                      </p>
-
-                      <Link to="/blog-details" className="learn-more-btn">
-                        Read Story <Icon.Plus />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                  )
+                })}
 
                 {/* Pagination */}
                 <div className="col-lg-12 col-md-12">
@@ -303,8 +160,8 @@ export const pageQuery = graphql`
       skip: $offset
     ) {
       nodes {
+        id
         excerpt
-        uri
         date(formatString: "MMMM DD, YYYY")
         title
         excerpt
