@@ -5,7 +5,7 @@ import Navbar from "../components/_App/Navbar"
 import Footer from "../components/_App/Footer"
 import PageBanner from "../components/Common/PageBanner"
 import * as Icon from "react-feather"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import BlogSidebar from "../components/Blog/BlogSidebar"
 
 import BlogDetailsImg from "../images/blog-image/blog-details.jpg"
@@ -473,3 +473,41 @@ const BlogDetailsPage = () => (
 export const Head = () => <Seo title="Blog Details" />
 
 export default BlogDetailsPage
+
+export const pageQuery = graphql`
+  query BlogPostById(
+    $id: String!
+    $previousPostId: String
+    $nextPostId: String
+  ) {
+    post: wpPost(id: { eq: $id }) {
+      id
+      excerpt
+      content
+      title
+      date(formatString: "MMMM DD, YYYY")
+      featuredImage {
+        node {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData(
+                quality: 100
+                placeholder: TRACED_SVG
+                layout: FULL_WIDTH
+              )
+            }
+          }
+        }
+      }
+    }
+    previous: wpPost(id: { eq: $previousPostId }) {
+      uri
+      title
+    }
+    next: wpPost(id: { eq: $nextPostId }) {
+      uri
+      title
+    }
+  }
+`

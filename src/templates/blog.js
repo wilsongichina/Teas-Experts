@@ -16,7 +16,7 @@ import BlogImg13 from "../images/blog-image/blog13.jpg"
 import BlogImg14 from "../images/blog-image/blog14.jpg"
 
 const BlogPage = ({ data }) => {
-  console.log('data: ', data.posts)
+  console.log('all posts: ', data?.allWpPost?.nodes)
   return (
     <Layout>
       <Navbar />
@@ -295,26 +295,19 @@ export const Head = () => <Seo title="Blog" />
 
 export default BlogPage
 
-export const query = graphql`
-  query {
-    posts: allWpPost(sort: { fields: [date], order: DESC }) {
+export const pageQuery = graphql`
+  query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
+    allWpPost(
+      sort: { fields: [date], order: DESC }
+      limit: $postsPerPage
+      skip: $offset
+    ) {
       nodes {
-        id
+        excerpt
+        uri
+        date(formatString: "MMMM DD, YYYY")
         title
-        content
-        author {
-          node {
-            id
-            name
-          }
-        }
-        featuredImage {
-          node {
-            id
-            gatsbyImage(width: 300)
-            srcSet
-          }
-        }
+        excerpt
       }
     }
   }
