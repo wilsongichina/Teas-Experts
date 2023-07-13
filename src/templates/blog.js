@@ -2,6 +2,7 @@ import React from "react"
 import parse from "html-react-parser"
 import * as Icon from "react-feather"
 import { graphql, Link } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/_App/layout"
 import Seo from "../components/_App/seo"
@@ -10,7 +11,7 @@ import Footer from "../components/_App/Footer"
 import PageBanner from "../components/Common/PageBanner"
 import BlogSidebar from "../components/Blog/BlogSidebar"
 
-import BlogImg9 from "../images/blog-image/blog9.jpg"
+import DefaultPostImage from "../images/blog-image/blog9.jpg"
 
 const BlogPage = ({ data }) => {
   const posts = data?.allWpPost?.nodes
@@ -52,13 +53,27 @@ const BlogPage = ({ data }) => {
                 
                 {posts.map(post => {
                   const title = post.title
+                  const author = post.author.node
+                  const featuredImage = {
+                    data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
+                    alt: post.featuredImage?.node?.alt || ``,
+                  }
 
                   return (
                     <div className="col-lg-6 col-md-6" key={post.id}>
                       <div className="single-blog-post-box">
                         <div className="entry-thumbnail">
                           <Link to={`/blog-detail/${post.id}`}>
-                            <img src={BlogImg9} alt="Post" />
+                            {featuredImage?.data ? (
+                              <GatsbyImage
+                                image={featuredImage.data}
+                                alt={featuredImage.alt}
+                                style={{ marginBottom: 50 }}
+                              />
+                            ) : 
+                            (
+                              <img src={DefaultPostImage} alt="Post" />
+                            )}
                           </Link>
                         </div>
 
@@ -66,7 +81,7 @@ const BlogPage = ({ data }) => {
                           <div className="entry-meta">
                             <ul>
                               <li>
-                                <Link to="#">Admin</Link>
+                                {author.name}
                               </li>
                               <li>{post.date}</li>
                             </ul>
@@ -160,6 +175,25 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         excerpt
+        author {
+          node {
+            name
+          }
+        }
+        featuredImage {
+          node {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
+              }
+            }
+          }
+        }
       }
     }
   }
