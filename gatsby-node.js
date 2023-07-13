@@ -1,35 +1,6 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
- */
-
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
-// exports.createPages = async ({ actions }) => {
-//   const { createPage } = actions
-//   createPage({
-//     path: "/using-dsg",
-//     component: require.resolve("./src/templates/using-dsg.js"),
-//     context: {},
-//     defer: true,
-//   })
-// }
-
 const path = require(`path`)
 const chunk = require(`lodash/chunk`)
 
-// This is a simple debugging tool
-// dd() will prettily dump to the terminal and kill the process
-// const { dd } = require(`dumper.js`)
-
-/**
- * exports.createPages is a built-in Gatsby Node API.
- * It's purpose is to allow you to create pages for your site! 💡
- *
- * See https://www.gatsbyjs.com/docs/node-apis/#createPages for more info.
- */
 exports.createPages = async gatsbyUtilities => {
   // Query our posts from the GraphQL server
   const posts = await getPosts(gatsbyUtilities)
@@ -104,10 +75,6 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
 
       const getPagePath = page => {
         if (page > 0 && page <= totalPages) {
-          // Since our homepage is our blog page
-          // we want the first page to be "/" and any additional pages
-          // to be numbered.
-          // "/blog/2" for example
           return page === 1 ? `/blog` : `/blog/${page}`
         }
 
@@ -118,8 +85,6 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
       // See https://www.gatsbyjs.com/docs/actions#createPage for more info
       await gatsbyUtilities.actions.createPage({
         path: getPagePath(pageNumber),
-        // path: `/blog`,
-
         // use the blog post archive template as the page component
         component: path.resolve(`./src/templates/blog.js`),
 

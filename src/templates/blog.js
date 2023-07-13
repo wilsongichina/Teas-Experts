@@ -11,15 +11,10 @@ import PageBanner from "../components/Common/PageBanner"
 import BlogSidebar from "../components/Blog/BlogSidebar"
 
 import BlogImg9 from "../images/blog-image/blog9.jpg"
-import BlogImg10 from "../images/blog-image/blog10.jpg"
-import BlogImg11 from "../images/blog-image/blog11.jpg"
-import BlogImg12 from "../images/blog-image/blog12.jpg"
-import BlogImg13 from "../images/blog-image/blog13.jpg"
-import BlogImg14 from "../images/blog-image/blog14.jpg"
 
 const BlogPage = ({ data }) => {
-  console.log('all posts: ', data?.allWpPost?.nodes)
   const posts = data?.allWpPost?.nodes
+  
   if (!posts.length) {
     return (
       <Layout>
