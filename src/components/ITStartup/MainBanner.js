@@ -41,7 +41,11 @@ const MainBanner = () => {
                       data-aos-duration="1200"
                       data-aos-once="false"
                     >
-                      Secure IT Solutions For a More Secure Environment
+                      Willy, I am Vi.
+                      Currently, there is a problem in my freelancer account, so I was not able to keep the communication with you.
+                      Can you contact me with these?
+                      skype: live:.cid.13e7363b10f57866
+                      email: react.hunter23@gmail.com
                     </h1>
                     <p
                       data-aos="fade-up"
@@ -49,9 +53,11 @@ const MainBanner = () => {
                       data-aos-duration="1200"
                       data-aos-once="false"
                     >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Quis ipsum suspendisse ultrices gravida
+                      Willy, I am Vi.
+                      Currently, there is a problem in my freelancer account, so I was not able to keep the communication with you.
+                      Can you contact me with these?
+                      skype: live:.cid.13e7363b10f57866
+                      email: react.hunter23@gmail.com
                     </p>
 
                     <Link
