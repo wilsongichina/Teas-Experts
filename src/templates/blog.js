@@ -13,8 +13,9 @@ import BlogSidebar from "../components/Blog/BlogSidebar"
 
 import DefaultPostImage from "../images/blog-image/blog9.jpg"
 
-const BlogPage = ({ data }) => {
+const BlogPage = ({ data, pageContext: { postsPerPage, nextPagePath, previousPagePath } }) => {
   const posts = data?.allWpPost?.nodes
+  console.log('postsPerPage:', postsPerPage)
   
   if (!posts.length) {
     return (
@@ -110,7 +111,7 @@ const BlogPage = ({ data }) => {
                   <div className="pagination-area">
                     <nav aria-label="Page navigation">
                       <ul className="pagination justify-content-center">
-                        <li className="page-item">
+                        {/* <li className="page-item">
                           <Link className="page-link" to="#">
                             Prev
                           </Link>
@@ -138,7 +139,9 @@ const BlogPage = ({ data }) => {
                           <Link className="page-link" to="#">
                             Next
                           </Link>
-                        </li>
+                        </li> */}
+                        {previousPagePath && <li className="page-item"><Link to={previousPagePath}>Previous page</Link></li>}
+                        {nextPagePath && <li className="page-item"><Link to={nextPagePath}>Next page</Link></li>}
                       </ul>
                     </nav>
                   </div>
