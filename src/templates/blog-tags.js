@@ -13,7 +13,7 @@ import BlogSidebar from "../components/Blog/BlogSidebar"
 
 import DefaultPostImage from "../images/blog-image/blog9.jpg"
 
-const BlogPage = ({ data, pageContext: { postsPerPage, nextPagePath, previousPagePath } }) => {
+const BlogByTagPage = ({ data }) => {
   const posts = data?.allWpPost?.nodes
   
   if (!posts.length) {
@@ -105,46 +105,6 @@ const BlogPage = ({ data, pageContext: { postsPerPage, nextPagePath, previousPag
                   )
                 })}
 
-                {/* Pagination */}
-                <div className="col-lg-12 col-md-12">
-                  <div className="pagination-area">
-                    <nav aria-label="Page navigation">
-                      <ul className="pagination justify-content-center">
-                        {/* <li className="page-item">
-                          <Link className="page-link" to="#">
-                            Prev
-                          </Link>
-                        </li>
-
-                        <li className="page-item active">
-                          <Link className="page-link" to="#">
-                            1
-                          </Link>
-                        </li>
-
-                        <li className="page-item">
-                          <Link className="page-link" to="#">
-                            2
-                          </Link>
-                        </li>
-
-                        <li className="page-item">
-                          <Link className="page-link" to="#">
-                            3
-                          </Link>
-                        </li>
-
-                        <li className="page-item">
-                          <Link className="page-link" to="#">
-                            Next
-                          </Link>
-                        </li> */}
-                        {previousPagePath && <li className="page-item"><Link to={previousPagePath}>Previous page</Link></li>}
-                        {nextPagePath && <li className="page-item"><Link to={nextPagePath}>Next page</Link></li>}
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -162,14 +122,15 @@ const BlogPage = ({ data, pageContext: { postsPerPage, nextPagePath, previousPag
 
 export const Head = () => <Seo title="Blog" />
 
-export default BlogPage
+export default BlogByTagPage
 
 export const pageQuery = graphql`
-  query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
+  query WordPressPostByTag(
+    $tagSlug: String
+  ) {
     allWpPost(
+      filter: { tags: { nodes: { elemMatch: { slug: { eq: $tagSlug } } } } }
       sort: { fields: [date], order: DESC }
-      limit: $postsPerPage
-      skip: $offset
     ) {
       nodes {
         id

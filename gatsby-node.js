@@ -4,7 +4,8 @@ const chunk = require(`lodash/chunk`)
 exports.createPages = async gatsbyUtilities => {
   // Query our posts from the GraphQL server
   const posts = await getPosts(gatsbyUtilities)
-
+  const tags = await getTags(gatsbyUtilities)
+  
   // If there are no posts in WordPress, don't do anything
   if (!posts.length) {
     return
@@ -15,6 +16,7 @@ exports.createPages = async gatsbyUtilities => {
 
   // And a paginated archive
   await createBlogPostArchive({ posts, gatsbyUtilities })
+  await createBlogPostByTag({ tags, gatsbyUtilities })
 }
 
 /**
@@ -107,6 +109,24 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
   )
 }
 
+
+
+/**
+ * This function creates all the individual blog pages by tag in this site
+ */
+const createBlogPostByTag = async ({ tags, gatsbyUtilities }) =>
+  Promise.all(
+    tags.map(({ tag }) =>
+      gatsbyUtilities.actions.createPage({
+        path: `/blog-tags/${tag.slug}`,
+        component: path.resolve(`./src/templates/blog-tags.js`),
+        context: {
+          tagSlug: tag.slug,
+        },
+      })
+    )
+  )
+
 /**
  * This function queries Gatsby's GraphQL server and asks for
  * All WordPress blog posts. If there are any GraphQL error it throws an error
@@ -149,5 +169,31 @@ async function getPosts({ graphql, reporter }) {
   }
 
   return graphqlResult.data.allWpPost.edges
+}
+
+async function getTags({ graphql, reporter }) {
+  const graphqlResult = await graphql(/* GraphQL */ `
+    query WpTags {
+      # Query all WordPress blog tags
+      allWpTag {
+        edges {
+          tag: node {
+            name
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  if (graphqlResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your blog posts`,
+      graphqlResult.errors
+    )
+    return
+  }
+
+  return graphqlResult.data.allWpTag.edges
 }
 

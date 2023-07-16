@@ -41,8 +41,7 @@ const MainBanner = () => {
                       data-aos-duration="1200"
                       data-aos-once="false"
                     >
-                      Willy, I am Vi.
-                      Currently, there is a problem in my freelancer account, so I was not able to keep the communication with you.
+                      Can I Pay Someone to Take My Teas Exam for Me?
                       Can you contact me with these?
                       skype: live:.cid.13e7363b10f57866
                       email: react.hunter23@gmail.com
@@ -53,11 +52,7 @@ const MainBanner = () => {
                       data-aos-duration="1200"
                       data-aos-once="false"
                     >
-                      Willy, I am Vi.
-                      Currently, there is a problem in my freelancer account, so I was not able to keep the communication with you.
-                      Can you contact me with these?
-                      skype: live:.cid.13e7363b10f57866
-                      email: react.hunter23@gmail.com
+                      Definitely! You can hire TeasExperts.com to take your ATI TEAS exam. We provide a satisfaction guarantee, assuring a minimum score of 85% or a full refund. Our team of proficient tutors is committed to guaranteeing your success on the ATI TEAS test.
                     </p>
 
                     <Link
