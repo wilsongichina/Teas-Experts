@@ -19,13 +19,13 @@ import ClientImg1 from "../images/client-image/client1.jpg"
 // import ClientImg4 from "../images/client-image/client4.jpg"
 // import ClientImg5 from "../images/client-image/client5.jpg"
 
-const BlogDetailsPage = ({data: { previous, next, post }}) => {
-  console.log('post: ', post)
+const BlogDetailsPage = ({data: { previous, next, post, popularPosts, allTags }}) => {
   const featuredImage = {
     data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
     alt: post.featuredImage?.node?.alt || ``,
   }
   const postTags = post.tags?.nodes
+  const tags = allTags?.edges
 
   return (
     <Layout>
@@ -68,7 +68,7 @@ const BlogDetailsPage = ({data: { previous, next, post }}) => {
                 <div className="article-footer">
                   <div className="article-tags">
                     {postTags && postTags.map(tag => 
-                      <Link to={`/blogsByTag/${tag.slug}`}>{tag.name}</Link>                      
+                      <Link to={`/blogsByTag/${tag.slug}`}>{tag.name}</Link>
                     )}
                   </div>
                 </div>
@@ -80,7 +80,7 @@ const BlogDetailsPage = ({data: { previous, next, post }}) => {
                     <ol className="comment-list">
                       {post.comments.nodes.map(com => {
                         return (
-                          <li className="comment">
+                          <li className="comment" key={com.id}>
                             <article className="comment-body">
                               <footer className="comment-meta">
                                 <div className="comment-author vcard">
@@ -99,9 +99,7 @@ const BlogDetailsPage = ({data: { previous, next, post }}) => {
                               </footer>
 
                               <div className="comment-content">
-                                <p>
-                                  {parse(com.content)}
-                                </p>
+                                {parse(com.content)}
                               </div>
 
                               {/* <div className="reply">
@@ -272,7 +270,7 @@ const BlogDetailsPage = ({data: { previous, next, post }}) => {
             </div>
 
             <div className="col-lg-4 col-md-12">
-              <BlogSidebar />
+              <BlogSidebar posts={popularPosts?.nodes} tags={tags} />
             </div>
           </div>
         </div>
@@ -326,6 +324,7 @@ export const pageQuery = graphql`
       }
       comments {
         nodes {
+          id
           author {
             node {
               name
@@ -344,5 +343,47 @@ export const pageQuery = graphql`
       uri
       title
     }
+    popularPosts: allWpPost(
+      sort: { fields: [date], order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        id
+        excerpt
+        date(formatString: "MMMM DD, YYYY")
+        title
+        excerpt
+        author {
+          node {
+            name
+          }
+        }
+        featuredImage {
+          node {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+    allTags: allWpTag {
+      edges {
+        tag: node {
+          id
+          name
+          slug
+          count
+        }
+      }
+    }
   }
+
 `

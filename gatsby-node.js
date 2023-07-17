@@ -118,7 +118,7 @@ const createBlogPostByTag = async ({ tags, gatsbyUtilities }) =>
   Promise.all(
     tags.map(({ tag }) =>
       gatsbyUtilities.actions.createPage({
-        path: `/blog-tags/${tag.slug}`,
+        path: `/blogsByTag/${tag.slug}`,
         component: path.resolve(`./src/templates/blog-tags.js`),
         context: {
           tagSlug: tag.slug,

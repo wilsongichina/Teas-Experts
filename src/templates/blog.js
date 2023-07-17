@@ -15,6 +15,8 @@ import DefaultPostImage from "../images/blog-image/blog9.jpg"
 
 const BlogPage = ({ data, pageContext: { postsPerPage, nextPagePath, previousPagePath } }) => {
   const posts = data?.allWpPost?.nodes
+  const tags = data?.allWpTag?.edges
+  const popularPosts = posts.length > 0 ? (posts.length > 3 ? posts.slice(0, 3) : posts) : []
   
   if (!posts.length) {
     return (
@@ -92,9 +94,7 @@ const BlogPage = ({ data, pageContext: { postsPerPage, nextPagePath, previousPag
                               {parse(title)}
                             </Link>
                           </h3>
-                          <p>
-                            {parse(post.excerpt)}
-                          </p>
+                          {parse(post.excerpt)}
 
                           <Link to={`/blog-detail/${post.id}`} className="learn-more-btn">
                             Read Story <Icon.Plus />
@@ -149,7 +149,7 @@ const BlogPage = ({ data, pageContext: { postsPerPage, nextPagePath, previousPag
             </div>
 
             <div className="col-lg-4 col-md-12">
-              <BlogSidebar />
+              <BlogSidebar posts={popularPosts} tags={tags} />
             </div>
           </div>
         </div>
@@ -195,6 +195,16 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    allWpTag {
+      edges {
+        tag: node {
+          id
+          name
+          slug
+          count
         }
       }
     }

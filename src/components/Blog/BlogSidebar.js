@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 import * as Icon from "react-feather"
+import parse from "html-react-parser"
 
-const BlogSidebar = () => {
+const BlogSidebar = ({ posts, tags }) => {
   return (
     <>
       <div className="widget-area" id="secondary">
@@ -23,58 +24,27 @@ const BlogSidebar = () => {
 
         <div className="widget widget_startp_posts_thumb">
           <h3 className="widget-title">Popular Posts</h3>
+          {posts && posts.length > 0 && posts.map(post => 
+            <article className="item" key={post.id}>
+              <Link to={`/blog-detail/${post.id}`} className="thumb">
+                <span className="fullimage cover bg1" role="img"></span>
+              </Link>
 
-          <article className="item">
-            <Link to="/blog-details" className="thumb">
-              <span className="fullimage cover bg1" role="img"></span>
-            </Link>
+              <div className="info">
+                <time>{posts.date}</time>
+                <h4 className="title usmall">
+                  <Link to={`/blog-detail/${post.id}`}>
+                    {parse(post.title)}
+                  </Link>
+                </h4>
+              </div>
 
-            <div className="info">
-              <time>June 10, 2023</time>
-              <h4 className="title usmall">
-                <Link to="/blog-details">
-                  Making Peace With The Feast Or Famine Of Freelancing
-                </Link>
-              </h4>
-            </div>
-
-            <div className="clear"></div>
-          </article>
-
-          <article className="item">
-            <Link to="/blog-details" className="thumb">
-              <span className="fullimage cover bg2" role="img"></span>
-            </Link>
-            <div className="info">
-              <time>June 21, 2023</time>
-              <h4 className="title usmall">
-                <Link to="/blog-details">
-                  I Used The Web For A Day On A 50 MB Budget
-                </Link>
-              </h4>
-            </div>
-
-            <div className="clear"></div>
-          </article>
-
-          <article className="item">
-            <Link to="/blog-details" className="thumb">
-              <span className="fullimage cover bg3" role="img"></span>
-            </Link>
-            <div className="info">
-              <time>June 30, 2023</time>
-              <h4 className="title usmall">
-                <Link to="/blog-details">
-                  How To Create A Responsive Popup Gallery?
-                </Link>
-              </h4>
-            </div>
-
-            <div className="clear"></div>
-          </article>
+              <div className="clear"></div>
+            </article>            
+          )}
         </div>
 
-        <div className="widget widget_categories">
+        {/* <div className="widget widget_categories">
           <h3 className="widget-title">Categories</h3>
 
           <ul>
@@ -94,36 +64,17 @@ const BlogSidebar = () => {
               <Link to="/blog-1">Uncategorized</Link>
             </li>
           </ul>
-        </div>
+        </div> */}
 
         <div className="widget widget_tag_cloud">
           <h3 className="widget-title">Tags</h3>
 
           <div className="tagcloud">
-            <Link to="/blog-1">
-              IT <span className="tag-link-count">(3)</span>
-            </Link>
-            <Link to="/blog-1">
-              Spacle <span className="tag-link-count">(3)</span>
-            </Link>
-            <Link to="/blog-1">
-              Games <span className="tag-link-count">(2)</span>
-            </Link>
-            <Link to="/blog-1">
-              Fashion <span className="tag-link-count">(2)</span>
-            </Link>
-            <Link to="/blog-1">
-              Travel <span className="tag-link-count">(1)</span>
-            </Link>
-            <Link to="/blog-1">
-              Smart <span className="tag-link-count">(1)</span>
-            </Link>
-            <Link to="/blog-1">
-              Marketing <span className="tag-link-count">(1)</span>
-            </Link>
-            <Link to="/blog-1">
-              Tips <span className="tag-link-count">(2)</span>
-            </Link>
+            {tags && tags.map(({ tag }) => 
+              <Link to={`/blogsByTag/${tag.slug}`} key={tag.id}>
+                {tag.name} <span className="tag-link-count">({tag.count})</span>
+              </Link>
+            )}
           </div>
         </div>
       </div>

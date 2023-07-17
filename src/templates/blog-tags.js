@@ -15,6 +15,8 @@ import DefaultPostImage from "../images/blog-image/blog9.jpg"
 
 const BlogByTagPage = ({ data }) => {
   const posts = data?.allWpPost?.nodes
+  const tags = data?.allWpTag?.edges
+  const popularPosts = posts.length > 0 ? (posts.length > 3 ? posts.slice(0, 3) : posts) : []
   
   if (!posts.length) {
     return (
@@ -109,7 +111,7 @@ const BlogByTagPage = ({ data }) => {
             </div>
 
             <div className="col-lg-4 col-md-12">
-              <BlogSidebar />
+              <BlogSidebar posts={popularPosts} tags={tags} />
             </div>
           </div>
         </div>
@@ -156,6 +158,16 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    allWpTag {
+      edges {
+        tag: node {
+          id
+          name
+          slug
+          count
         }
       }
     }
