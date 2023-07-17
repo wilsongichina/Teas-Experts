@@ -65,7 +65,7 @@ const BlogPage = ({ data, pageContext: { postsPerPage, nextPagePath, previousPag
                     <div className="col-lg-6 col-md-6" key={post.id}>
                       <div className="single-blog-post-box">
                         <div className="entry-thumbnail">
-                          <Link to={`/blog-detail/${post.id}`}>
+                          <Link to={post.uri}>
                             {featuredImage?.data ? (
                               <GatsbyImage
                                 image={featuredImage.data}
@@ -90,13 +90,13 @@ const BlogPage = ({ data, pageContext: { postsPerPage, nextPagePath, previousPag
                           </div>
 
                           <h3>
-                            <Link to={`/blog-detail/${post.id}`}>
+                            <Link to={post.uri}>
                               {parse(title)}
                             </Link>
                           </h3>
                           {parse(post.excerpt)}
 
-                          <Link to={`/blog-detail/${post.id}`} className="learn-more-btn">
+                          <Link to={post.uri} className="learn-more-btn">
                             Read Story <Icon.Plus />
                           </Link>
                         </div>
@@ -173,7 +173,7 @@ export const pageQuery = graphql`
     ) {
       nodes {
         id
-        excerpt
+        uri
         date(formatString: "MMMM DD, YYYY")
         title
         excerpt

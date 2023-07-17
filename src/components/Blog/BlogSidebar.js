@@ -1,13 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
-import * as Icon from "react-feather"
+// import * as Icon from "react-feather"
 import parse from "html-react-parser"
 
 const BlogSidebar = ({ posts, tags }) => {
   return (
     <>
       <div className="widget-area" id="secondary">
-        <div className="widget widget_search">
+        {/* <div className="widget widget_search">
           <form className="search-form">
             <label htmlFor="search">
               <input
@@ -20,20 +20,20 @@ const BlogSidebar = ({ posts, tags }) => {
               <Icon.Search />
             </button>
           </form>
-        </div>
+        </div> */}
 
         <div className="widget widget_startp_posts_thumb">
           <h3 className="widget-title">Popular Posts</h3>
           {posts && posts.length > 0 && posts.map(post => 
             <article className="item" key={post.id}>
-              <Link to={`/blog-detail/${post.id}`} className="thumb">
+              <Link to={post.uri} className="thumb">
                 <span className="fullimage cover bg1" role="img"></span>
               </Link>
 
               <div className="info">
-                <time>{posts.date}</time>
+                <time>{post.date}</time>
                 <h4 className="title usmall">
-                  <Link to={`/blog-detail/${post.id}`}>
+                  <Link to={post.uri}>
                     {parse(post.title)}
                   </Link>
                 </h4>
