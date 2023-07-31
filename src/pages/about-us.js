@@ -68,7 +68,7 @@ const AboutUsPage = ({ data }) => {
 
       <FunFactsArea data={contents[4]} />
 
-      <Footer />
+      <Footer data={data?.allContentfulFooter?.nodes[0]} />
     </Layout>
   )
 }
@@ -84,6 +84,20 @@ export const pageQuery = graphql`
         id
         contents {
           cid
+          title
+          description {
+            raw
+          }
+        }
+      }
+    }
+    allContentfulFooter {
+      nodes {
+        address
+        copyright
+        email
+        phone
+        specialist {
           title
           description {
             raw

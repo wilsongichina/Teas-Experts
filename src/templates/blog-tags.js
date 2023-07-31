@@ -115,7 +115,7 @@ const BlogByTagPage = ({ data }) => {
         </div>
       </div>
 
-      <Footer />
+      <Footer data={data?.allContentfulFooter?.nodes[0]} />
     </Layout>
   )
 }
@@ -166,6 +166,20 @@ export const pageQuery = graphql`
           name
           slug
           count
+        }
+      }
+    }
+    allContentfulFooter {
+      nodes {
+        address
+        copyright
+        email
+        phone
+        specialist {
+          title
+          description {
+            raw
+          }
         }
       }
     }

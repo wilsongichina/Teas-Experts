@@ -15,7 +15,7 @@ import BlogDetailsImg from "../images/blog-image/blog-details.jpg"
 
 import ClientImg1 from "../images/client-image/client1.jpg"
 
-const BlogDetailsPage = ({data: { previous, next, post, popularPosts, allTags }}) => {
+const BlogDetailsPage = ({data: { previous, next, post, popularPosts, allTags, allContentfulFooter }}) => {
   const featuredImage = {
     data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
     alt: post.featuredImage?.node?.alt || ``,
@@ -192,7 +192,7 @@ const BlogDetailsPage = ({data: { previous, next, post, popularPosts, allTags }}
         </div>
       </div>
 
-      <Footer />
+      <Footer data={allContentfulFooter?.nodes[0]} />
     </Layout>
   )
 }
@@ -298,6 +298,20 @@ export const pageQuery = graphql`
           name
           slug
           count
+        }
+      }
+    }
+    allContentfulFooter {
+      nodes {
+        address
+        copyright
+        email
+        phone
+        specialist {
+          title
+          description {
+            raw
+          }
         }
       }
     }

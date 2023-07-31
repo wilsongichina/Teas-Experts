@@ -1,4 +1,6 @@
 import React from "react"
+import { graphql } from "gatsby"
+
 import Layout from "../components/_App/layout"
 import Seo from "../components/_App/seo"
 import Navbar from "../components/_App/Navbar"
@@ -15,7 +17,7 @@ import {
 import ServicesDetails1 from "../images/services-details-image/services-details1.png"
 import ServicesDetails2 from "../images/services-details-image/services-details2.png"
 
-const ServiceDetailsPage = ({ location }) => {
+const ServiceDetailsPage = ({ location, data }) => {
   console.log('service:', location.state?.service);
   return (
     <Layout>
@@ -130,7 +132,7 @@ const ServiceDetailsPage = ({ location }) => {
         </div>
       </div>
 
-      <Footer />
+      <Footer data={data?.allContentfulFooter?.nodes[0]} />
     </Layout>
   )
 }
@@ -138,3 +140,22 @@ const ServiceDetailsPage = ({ location }) => {
 export const Head = () => <Seo title="Service Details" />
 
 export default ServiceDetailsPage
+
+export const pageQuery = graphql`
+  query ContentfulContent {
+    allContentfulFooter {
+      nodes {
+        address
+        copyright
+        email
+        phone
+        specialist {
+          title
+          description {
+            raw
+          }
+        }
+      }
+    }
+  }
+`

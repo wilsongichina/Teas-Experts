@@ -110,35 +110,6 @@ const BlogPage = ({ data, pageContext: { postsPerPage, nextPagePath, previousPag
                   <div className="pagination-area">
                     <nav aria-label="Page navigation">
                       <ul className="pagination justify-content-center">
-                        {/* <li className="page-item">
-                          <Link className="page-link" to="#">
-                            Prev
-                          </Link>
-                        </li>
-
-                        <li className="page-item active">
-                          <Link className="page-link" to="#">
-                            1
-                          </Link>
-                        </li>
-
-                        <li className="page-item">
-                          <Link className="page-link" to="#">
-                            2
-                          </Link>
-                        </li>
-
-                        <li className="page-item">
-                          <Link className="page-link" to="#">
-                            3
-                          </Link>
-                        </li>
-
-                        <li className="page-item">
-                          <Link className="page-link" to="#">
-                            Next
-                          </Link>
-                        </li> */}
                         {previousPagePath && <li className="page-item"><Link to={previousPagePath}>Previous page</Link></li>}
                         {nextPagePath && <li className="page-item"><Link to={nextPagePath}>Next page</Link></li>}
                       </ul>
@@ -155,7 +126,7 @@ const BlogPage = ({ data, pageContext: { postsPerPage, nextPagePath, previousPag
         </div>
       </div>
 
-      <Footer />
+      <Footer data={data?.allContentfulFooter?.nodes[0]} />
     </Layout>
   )
 }
@@ -205,6 +176,20 @@ export const pageQuery = graphql`
           name
           slug
           count
+        }
+      }
+    }
+    allContentfulFooter {
+      nodes {
+        address
+        copyright
+        email
+        phone
+        specialist {
+          title
+          description {
+            raw
+          }
         }
       }
     }

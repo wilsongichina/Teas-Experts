@@ -4,7 +4,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 import MapImg from "../../images/map.png"
 
-const FunFactsArea = ({data}) => {
+const FunFactsArea = ({ data }) => {
   return (
     <>
       <div className="funfacts-area ptb-80">

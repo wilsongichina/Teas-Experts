@@ -1,4 +1,6 @@
 import React from "react"
+import { graphql } from "gatsby"
+
 import Layout from "../components/_App/layout"
 import Seo from "../components/_App/seo"
 import Navbar from "../components/_App/Navbar"
@@ -21,7 +23,7 @@ import Shape2 from "../images/shape2.svg"
 import Shape3 from "../images/shape3.svg"
 import Shape4 from "../images/shape4.svg"
 
-const AuthorPage = () => (
+const AuthorPage = ({ data }) => (
   <Layout>
     <Navbar />
 
@@ -265,10 +267,29 @@ const AuthorPage = () => (
       </div>
     </div>
 
-    <Footer />
+    <Footer data={data?.allContentfulFooter?.nodes[0]} />
   </Layout>
 )
 
 export const Head = () => <Seo title="Author" />
 
 export default AuthorPage
+
+export const pageQuery = graphql`
+  query ContentfulAuthor {
+    allContentfulFooter {
+      nodes {
+        address
+        copyright
+        email
+        phone
+        specialist {
+          title
+          description {
+            raw
+          }
+        }
+      }
+    }
+  }
+`

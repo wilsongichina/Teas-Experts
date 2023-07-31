@@ -1,4 +1,6 @@
 import React from "react"
+import { graphql } from "gatsby"
+
 import Layout from "../components/_App/layout"
 import Seo from "../components/_App/seo"
 import Navbar from "../components/_App/Navbar"
@@ -15,7 +17,7 @@ import {
 import FeatureImg1 from "../images/features-details-image/feature1.png"
 import FeatureImg2 from "../images/features-details-image/feature2.png"
 
-const FeatureDetailsPage = () => (
+const FeatureDetailsPage = ({ data }) => (
   <Layout>
     <Navbar />
 
@@ -130,10 +132,29 @@ const FeatureDetailsPage = () => (
       </div>
     </div>
 
-    <Footer />
+    <Footer data={data?.allContentfulFooter?.nodes[0]} />
   </Layout>
 )
 
 export const Head = () => <Seo title="Feature Details" />
 
 export default FeatureDetailsPage
+
+export const pageQuery = graphql`
+  query ContentfulContent {
+    allContentfulFooter {
+      nodes {
+        address
+        copyright
+        email
+        phone
+        specialist {
+          title
+          description {
+            raw
+          }
+        }
+      }
+    }
+  }
+`
