@@ -1,4 +1,7 @@
 import * as React from "react"
+import { graphql } from "gatsby"
+// import { renderRichText } from 'gatsby-source-contentful/rich-text'
+
 import Layout from "../components/_App/layout"
 import Seo from "../components/_App/seo"
 import Navbar from "../components/_App/Navbar"
@@ -13,7 +16,7 @@ import Faq from "../components/Common/Faq"
 import BlogPost from "../components/Common/BlogPost"
 import Footer from "../components/_App/Footer"
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
 
     <Navbar />
@@ -28,7 +31,7 @@ const IndexPage = () => (
 
     <Team />
 
-    <FunFactsArea />
+    <FunFactsArea data={data?.allContentfulAboutUsPage?.nodes[0]?.contents[4]} />
 
     <RecentWorks />
 
@@ -49,3 +52,20 @@ const IndexPage = () => (
 export const Head = () => <Seo title="Home" />
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query ContentfulAboutUs {
+    allContentfulAboutUsPage {
+      nodes {
+        id
+        contents {
+          cid
+          title
+          description {
+            raw
+          }
+        }
+      }
+    }
+  }
+`

@@ -7,6 +7,8 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+require("./src/config/constants");
 module.exports = {
   siteMetadata: {
     title: `TeasExperts`,
@@ -66,6 +68,13 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`,
+      },
+    },
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId: CONTENTFUL_SPACE_ID,
+        accessToken: CONTENTFUL_DELIVERY_TOKEN
       },
     },
 

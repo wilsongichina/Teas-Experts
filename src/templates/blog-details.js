@@ -14,10 +14,6 @@ import BlogSidebar from "../components/Blog/BlogSidebar"
 import BlogDetailsImg from "../images/blog-image/blog-details.jpg"
 
 import ClientImg1 from "../images/client-image/client1.jpg"
-// import ClientImg2 from "../images/client-image/client2.jpg"
-// import ClientImg3 from "../images/client-image/client3.jpg"
-// import ClientImg4 from "../images/client-image/client4.jpg"
-// import ClientImg5 from "../images/client-image/client5.jpg"
 
 const BlogDetailsPage = ({data: { previous, next, post, popularPosts, allTags }}) => {
   const featuredImage = {
@@ -26,7 +22,7 @@ const BlogDetailsPage = ({data: { previous, next, post, popularPosts, allTags }}
   }
   const postTags = post.tags?.nodes
   const tags = allTags?.edges
-  console.log('postTags:', postTags)
+
   return (
     <Layout>
       <Navbar />
