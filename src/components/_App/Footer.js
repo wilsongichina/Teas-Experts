@@ -1,14 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import * as Icon from "react-feather"
 
-// import Logo from "../../images/logo.png"
 import MapImg from "../../images/map.png"
 import Shape1 from "../../images/shape1.png"
 import Shape2 from "../../images/shape2.svg"
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear()
+const Footer = ({ data }) => {
   return (
     <>
       <footer className="footer-area bg-f7fafd">
@@ -22,17 +21,8 @@ const Footer = () => {
               data-aos-once="false"
             >
               <div className="single-footer-widget">
-                {/* <div className="logo">
-                  <Link to="/it-startup">
-                    <img src={Logo} alt="logo" />
-                  </Link>
-                </div> */}
-                <h3>Teas Exam Specialists:</h3>
-                <p>
-                  Our company offers extensive support for a variety of exams, including proctored exams, TEAS exams, HESI A2 exams, GED exams, and final exams. 
-                  With our customized services, we cater to various subjects and academic levels, providing the assistance you need to accomplish your academic objectives. 
-                  You can hire our affordable services today and allow us to assist you in successfully completing your classes.
-                </p>
+                <h3>{data?.specialist.title}</h3>
+                {renderRichText(data?.specialist.description)}
               </div>
             </div>
 
@@ -107,15 +97,15 @@ const Footer = () => {
                 <ul className="footer-contact-info">
                   <li>
                     <Icon.MapPin />
-                    27 Division St, New York, <br /> NY 10002, USA
+                    {data.address}
                   </li>
                   <li>
                     <Icon.Mail />
-                    Email: <a href="mailto:info@teasexperts.com">info@teasexperts.com</a>
+                    Email: <a href={`mailto:${data?.email}`}>{data?.email}</a>
                   </li>
                   <li>
                     <Icon.PhoneCall />
-                    Phone: <a href="tel:4782030968">+ (478) 203 0968</a>
+                    Phone: <a href={`tel:${data?.phone}`}>{data?.phone}</a>
                   </li>
                 </ul>
 
@@ -167,7 +157,7 @@ const Footer = () => {
             <div className="col-lg-12 col-md-12">
               <div className="copyright-area">
                 <p>
-                  Copyright &copy; {currentYear} Spet. All rights reserved by Teas Experts
+                  {data?.copyright}
                 </p>
               </div>
             </div>

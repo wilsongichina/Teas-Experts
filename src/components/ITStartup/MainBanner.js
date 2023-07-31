@@ -35,17 +35,6 @@ const MainBanner = () => {
               <div className="row h-100 justify-content-center align-items-center">
                 <div className="col-lg-5">
                   <div className="hero-content">
-                    <h1
-                      data-aos="fade-up"
-                      data-aos-delay="100"
-                      data-aos-duration="1200"
-                      data-aos-once="false"
-                    >
-                      Can I Pay Someone to Take My Teas Exam for Me?
-                      Can you contact me with these?
-                      skype: live:.cid.13e7363b10f57866
-                      email: react.hunter23@gmail.com
-                    </h1>
                     <p
                       data-aos="fade-up"
                       data-aos-delay="200"
