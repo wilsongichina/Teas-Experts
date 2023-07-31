@@ -22,7 +22,7 @@ const Footer = ({ data }) => {
             >
               <div className="single-footer-widget">
                 <h3>{data?.specialist.title}</h3>
-                {renderRichText(data?.specialist.description)}
+                {renderRichText(data?.specialist?.description)}
               </div>
             </div>
 

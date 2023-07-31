@@ -99,7 +99,7 @@ const FAQPage = ({ data }) => {
         </div>
       </div>
 
-      <Footer />
+      <Footer data={data?.allContentfulFooter?.nodes[0]} />
     </Layout>
   )
 }
@@ -114,6 +114,20 @@ export const pageQuery = graphql`
       nodes {
         faqs {
           cid
+          title
+          description {
+            raw
+          }
+        }
+      }
+    }
+    allContentfulFooter {
+      nodes {
+        address
+        copyright
+        email
+        phone
+        specialist {
           title
           description {
             raw
