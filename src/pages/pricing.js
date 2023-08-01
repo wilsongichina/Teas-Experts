@@ -15,7 +15,7 @@ const PricingPage = ({ data }) => (
     <PageBanner pageTitle="Pricing" />
 
     <div className="pt-80">
-      <PricingCards />
+      <PricingCards pricings={data?.allContentfulPricing?.nodes[0]?.pricingOptions} />
     </div>
 
     <Footer data={data?.allContentfulFooter?.nodes[0]} />
@@ -28,6 +28,17 @@ export default PricingPage
 
 export const pageQuery = graphql`
   query ContentfulContent {
+    allContentfulPricing {
+      nodes {
+        pricingOptions {
+          cid
+          title
+          description {
+            raw
+          }
+        }
+      }
+    }
     allContentfulFooter {
       nodes {
         address
