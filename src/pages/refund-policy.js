@@ -13,7 +13,7 @@ const RefundPolicyPage = ({ data }) => (
     <Navbar />
 
     <PageBanner pageTitle="Refund Policy" />
-    <RefundPolicy />
+    <RefundPolicy refund={data?.allContentfulRefundPolicy?.nodes[0]} />
 
     <Footer data={data?.allContentfulFooter?.nodes[0]} />
   </Layout>
@@ -25,6 +25,14 @@ export default RefundPolicyPage
 
 export const pageQuery = graphql`
   query ContentfulContent {
+    allContentfulRefundPolicy {
+      nodes {
+        title
+        description {
+          raw
+        }
+      }
+    }
     allContentfulFooter {
       nodes {
         address

@@ -14,7 +14,7 @@ const HowItWorksPage = ({ data }) => (
 
     <PageBanner pageTitle="" />
 
-    <HowItWork />
+    <HowItWork data={data?.allContentfulHowDoIt?.nodes[0]} />
 
     <Footer data={data?.allContentfulFooter?.nodes[0]} />
   </Layout>
@@ -26,6 +26,21 @@ export default HowItWorksPage
 
 export const pageQuery = graphql`
   query ContentfulContent {
+    allContentfulHowDoIt {
+      nodes {
+        title
+        description {
+          raw
+        }
+        steps {
+          cid
+          title
+          description {
+            raw
+          }
+        }
+      }
+    }
     allContentfulFooter {
       nodes {
         address

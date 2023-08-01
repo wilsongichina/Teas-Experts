@@ -13,7 +13,7 @@ const PrivacyPolicyPage = ({ data }) => (
     <Navbar />
 
     <PageBanner pageTitle="Privacy Policy" />
-    <PrivacyPolicy />
+    <PrivacyPolicy privacyList={data?.allContentfulPrivacyPolicy?.nodes[0]?.privacies} />
 
     <Footer data={data?.allContentfulFooter?.nodes[0]} />
   </Layout>
@@ -25,6 +25,17 @@ export default PrivacyPolicyPage
 
 export const pageQuery = graphql`
   query ContentfulContent {
+    allContentfulPrivacyPolicy {
+      nodes {
+        privacies {
+          cid
+          title
+          description {
+            raw
+          }
+        }
+      }
+    }
     allContentfulFooter {
       nodes {
         address
