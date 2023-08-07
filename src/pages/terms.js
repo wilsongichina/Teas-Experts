@@ -13,7 +13,7 @@ const TermsConditionsPage = ({ data }) => (
     <Navbar />
 
     <PageBanner pageTitle="Terms and Conditions" />
-    <TermsConditions />
+    <TermsConditions data={data?.allContentfulTermsAndConditions?.nodes[0]} />
 
     <Footer data={data?.allContentfulFooter?.nodes[0]} />
   </Layout>
@@ -25,6 +25,20 @@ export default TermsConditionsPage
 
 export const pageQuery = graphql`
   query ContentfulContent {
+    allContentfulTermsAndConditions {
+      nodes {
+        description {
+          raw
+        }
+        terms {
+          cid
+          title
+          description {
+            raw
+          }
+        }
+      }
+    }
     allContentfulFooter {
       nodes {
         address

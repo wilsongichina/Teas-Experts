@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 // Banner Images
 import Man from "../../images/banner-image/man.png"
@@ -25,7 +26,7 @@ import Shape3 from "../../images/shape3.svg"
 import Shape4 from "../../images/shape4.svg"
 import Shape5 from "../../images/shape5.png"
 
-const MainBanner = () => {
+const MainBanner = ({ data }) => {
   return (
     <>
       <div className="main-banner">
@@ -35,14 +36,7 @@ const MainBanner = () => {
               <div className="row h-100 justify-content-center align-items-center">
                 <div className="col-lg-5">
                   <div className="hero-content">
-                    <p
-                      data-aos="fade-up"
-                      data-aos-delay="200"
-                      data-aos-duration="1200"
-                      data-aos-once="false"
-                    >
-                      Definitely! You can hire TeasExperts.com to take your ATI TEAS exam. We provide a satisfaction guarantee, assuring a minimum score of 85% or a full refund. Our team of proficient tutors is committed to guaranteeing your success on the ATI TEAS test.
-                    </p>
+                    {renderRichText(data)}
 
                     <Link
                       to="/contact"

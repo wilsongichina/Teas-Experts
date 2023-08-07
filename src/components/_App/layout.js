@@ -17,7 +17,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Script type="text/javascript">{`window.$crisp=[];window.CRISP_WEBSITE_ID="cff46048-0bec-4bc3-9f2c-3266798d0962";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`}</Script>
+      <Script type="text/javascript">
+        {`window.$crisp=[];window.CRISP_WEBSITE_ID="cff46048-0bec-4bc3-9f2c-3266798d0962";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();strategy="off-main-thread"`}
+      </Script>
       <main>{children}</main>
 
       <GoTop scrollStepInPx="100" delayInMs="10.50" />
